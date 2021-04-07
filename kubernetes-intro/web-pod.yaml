@@ -4,6 +4,7 @@ metadata:
   name: web1
   labels:
     app: web1
+    tier: frontend
 spec:
   containers:
     - name: app

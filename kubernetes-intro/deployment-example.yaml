@@ -1,20 +1,19 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: web1
+  name: web1-deployment
   labels:
     app: web1
-    tier: frontend
 spec:
-  # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: frontend
+      app: web1
+  strategy: {}
   template:
     metadata:
       labels:
-        tier: frontend
+        app: web1
     spec:
       containers:
         - name: app
