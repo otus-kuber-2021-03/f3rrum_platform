@@ -6,18 +6,18 @@ metadata:
     app: web
 spec:
   containers:
-  - name: app
-    image: f3rrum/kubernetes_repo:nginx_kuber
-    volumeMounts:
     - name: app
-      mountPath: /app
+      image: f3rrum/kubernetes_repo:nginx_kuber
+      volumeMounts:
+        - name: app
+          mountPath: /app
   initContainers:
     - name: init-myservice
       image: busybox:1.31.0
-      command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
+      command: ["sh", "-c", "wget -O- https://tinyurl.com/otus-k8s-intro | sh"]
       volumeMounts:
-      - name: app
-        mountPath: /app
+        - name: app
+          mountPath: /app
   volumes:
     - name: app
       emptyDir: {}
