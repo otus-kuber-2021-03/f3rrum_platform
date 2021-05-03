@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend
+  name: paymentService
   labels:
-    app: frontend
+    app: paymentService
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: paymentService
   template:
     metadata:
       labels:
-        app: frontend
+        app: paymentService
     spec:
       containers:
       - name: server
-        image: f3rrum/hipster-frontend:v0.0.2
+        image: f3rrum/hipster-paymentservice:v0.0.1
         env:
           - name: PORT
             value: "8080"
